@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1 class="mb-3">Archive</h1>
+  <ul class="list-group">
+    {% for post in posts %}
+      <li class="list-group-item list-group-item-light">
+        <a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a>
+        <small class="text-muted">— by {{ post.author.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
